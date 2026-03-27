@@ -3,26 +3,30 @@
 <head>
 <meta charset="utf-8">
 <style>
-body{font-family:Segoe UI,sans-serif;background:#f3f4f6;padding:2rem;}
+body{font-family:Segoe UI,sans-serif;background:#f3f4f6;padding:2rem;margin:0;}
 .b{max-width:400px;margin:auto;background:#fff;padding:2rem;border-radius:12px;box-shadow:0 4px 6px -1px rgb(0 0 0/0.1);}
 h2{color:#1f2937;text-align:center;margin-bottom:1.5rem;}
 .i{display:flex;flex-direction:column;margin-bottom:1rem;}
 label{font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:#374151;}
-input{padding:.6rem;border:1px solid #d1d5db;border-radius:6px;outline:none;}
-input:focus{border-color:#3b82f6;}
-.btn{width:100%;padding:.75rem;background:#3b82f6;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;}
-.btn:hover{background:#2563eb;}
-#s{text-align:center;margin-top:1rem;color:#10b981;display:none;}
+input{padding:.6rem;border:1px solid #d1d5db;border-radius:6px;outline:none;font-size:.875rem;transition:border-color .2s;}
+input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1);}
+input:disabled{background:#f9fafb;color:#9ca3af;}
+.btn{width:100%;padding:.75rem;background:#3b82f6;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.875rem;transition:background .2s,opacity .2s;}
+.btn:hover:not(:disabled){background:#2563eb;}
+.btn:disabled{cursor:not-allowed;}
+#s{text-align:center;margin-top:1rem;font-size:.875rem;font-weight:500;display:none;}
 .cr{text-align:center;font-size:0.75rem;color:#9ca3af;margin-top:2rem;}
+.warn{font-size:.75rem;color:#6b7280;text-align:center;margin-top:.5rem;line-height:1.4;}
 </style>
 </head>
 <body>
 <div class="b">
 <h2>Configuration</h2>
-<div class="i"><label>Google Email</label><input type="email" id="g_e"></div>
-<div class="i"><label>Google Password</label><input type="password" id="g_p"></div>
-<button class="btn" id="save" style="margin-top:1rem;">Save Credentials</button>
+<div class="i"><label for="g_e">Google Email</label><input type="email" id="g_e" placeholder="you@gmail.com" autocomplete="off" spellcheck="false"></div>
+<div class="i"><label for="g_p">Google Password</label><input type="password" id="g_p" placeholder="••••••••" autocomplete="new-password"></div>
+<button class="btn" id="save" style="margin-top:1rem;" type="button">Save Credentials</button>
 <p id="s">Saved successfully!</p>
+<p class="warn">Credentials are stored locally in your browser only.</p>
 <div class="cr">Made by Faseeh</div>
 </div>
 <script src="options.js"></script>
